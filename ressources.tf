@@ -1,7 +1,9 @@
 resource "aws_instance" "app_server" {
-  count         = var.app_server_count
-  ami           = var.ami
-  instance_type = var.instance_type
+  count           = var.app_server_count
+  ami             = var.ami
+  instance_type   = var.instance_type
+  security_groups = [aws_security_group.webserver_access.name]
+
   tags = {
     Name         = "App Server ${count.index + 1}"
     KRITIS       = "false"
