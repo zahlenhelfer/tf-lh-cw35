@@ -12,3 +12,13 @@ variable "instance_type" {
   type        = string
   description = "type of the instance (example: t2.micro, t4g.micro)"
 }
+
+variable "app_server_count" {
+  type        = number
+  description = "number of app servers to create"
+  default     = 3
+  validation {
+    condition     = var.app_server_count > 0
+    error_message = "App server count must be greater than 0"
+  }
+}
