@@ -1,6 +1,7 @@
 resource "aws_instance" "app_server" {
-  ami           = "ami-0de02246788e4a354"
-  instance_type = "t2.micro"
+  count         = 2
+  ami           = var.ami
+  instance_type = var.instance_type
   tags = {
     Name         = "ExampleAppServerInstance"
     KRITIS       = "false"
