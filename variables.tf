@@ -69,3 +69,9 @@ variable "common_tags" {
     Environment = "Production"
   }
 }
+
+variable "s3bucket_name" {
+  type        = string
+  description = "Name of the S3 bucket"
+  default     = "mro-4711"
+}
