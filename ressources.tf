@@ -1,6 +1,6 @@
 resource "aws_instance" "app_server" {
   count         = var.app_server_count
-  ami           = var.ami
+  ami           = data.aws_ami.amazon-linux-2.id
   instance_type = var.instance_type
   #security_groups = [aws_security_group.webserver_access.name] - default VPC
   vpc_security_group_ids      = [aws_security_group.webserver_access.id] # custom VPC

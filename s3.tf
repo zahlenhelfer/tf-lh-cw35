@@ -11,7 +11,6 @@ resource "aws_s3_bucket_public_access_block" "my-static-website" {
   restrict_public_buckets = false
 }
 
-
 resource "aws_s3_bucket_ownership_controls" "my-static-website" {
   bucket = aws_s3_bucket.bucket.id
   rule {
