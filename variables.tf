@@ -22,3 +22,9 @@ variable "app_server_count" {
     error_message = "App server count must be greater than 0"
   }
 }
+
+variable "server_build" {
+  type        = bool
+  default     = false
+  description = "soll eim Datenbankserver erstellt werden"
+}
