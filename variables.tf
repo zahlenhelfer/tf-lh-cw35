@@ -52,3 +52,14 @@ variable "ports" {
     }
   }
 }
+
+variable "common_tags" {
+  type = map(string)
+  default = {
+    Department  = "Global Infrastructure Services"
+    Team        = "EMEA Delivery"
+    CostCenter  = "12345"
+    Application = "Intranet-Portal"
+    Environment = "Production"
+  }
+}
