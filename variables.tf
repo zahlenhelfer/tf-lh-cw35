@@ -30,5 +30,25 @@ variable "server_build" {
 }
 
 variable "ports" {
-  default = [80, 443, 22, 666]
+  type = map(any)
+  default = {
+    "http" = {
+      port        = 80,
+      to_port     = 80,
+      protocol    = "tcp",
+      cidr_blocks = ["0.0.0.0/0"],
+    }
+    "ssh access" = {
+      port        = 22,
+      to_port     = 22,
+      protocol    = "tcp",
+      cidr_blocks = ["10.0.0.0/16"],
+    }
+    "https" = {
+      port        = 443,
+      to_port     = 443,
+      protocol    = "tcp",
+      cidr_blocks = ["0.0.0.0/0"],
+    }
+  }
 }
