@@ -3,7 +3,7 @@ resource "aws_instance" "db_server" {
   ami                    = var.ami
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.webserver_access.id] # custom VPC
-  subnet_id              = aws_subnet.public.id
+  subnet_id              = module.vpc.private_subnets[0]
 
   tags = {
     Name         = "DB Server"

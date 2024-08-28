@@ -8,6 +8,12 @@ variable "ami" {
   }
 }
 
+variable "region" {
+  type        = string
+  description = "AWS region"
+  default     = "eu-central-1"
+}
+
 variable "instance_type" {
   type        = string
   description = "type of the instance (example: t2.micro, t4g.micro)"
