@@ -6,14 +6,7 @@ resource "aws_instance" "app_server" {
   vpc_security_group_ids      = [aws_security_group.webserver_access.id] # custom VPC
   subnet_id                   = module.vpc.public_subnets[0]
   associate_public_ip_address = true
-  user_data                   = <<-EOF
-              #!/bin/bash
-              yum update -y
-              yum install -y httpd
-              systemctl start httpd
-              systemctl enable httpd
-              echo "<h1>Deployed via Terraform</h1>" > /var/www/html/index.html
-              EOF
+  user_data                   = file("apache.sh")
 
   tags = {
     Name         = "App Server ${count.index + 1}"
