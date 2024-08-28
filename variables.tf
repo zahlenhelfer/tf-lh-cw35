@@ -28,3 +28,7 @@ variable "server_build" {
   default     = false
   description = "soll eim Datenbankserver erstellt werden"
 }
+
+variable "ports" {
+  default = [80, 443, 22, 666]
+}
